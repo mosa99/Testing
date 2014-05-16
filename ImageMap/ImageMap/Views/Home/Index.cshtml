@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Body{
+<h2>Index</h2>
+
+Hello World!
+
+<img src="/Images/pei_flat.gif" height="344" width="751" style="border:solid black 1px;"usemap="#testAreas" />
+
+
+<map name="testAreas">
+    <area id="1" shape="circle" coords="50,50, 50" href="#" alt="Testing"     data-key="1" data-color="0000ff" />
+    <area id="2" shape="circle" coords="200,100, 20" href="#" alt="Testing 2" data-key="2" data-color="6495ED" />
+    <area id="3" shape="circle" coords="300,100, 20" href="#" alt="Testing 2" data-key="3" data-color="ff0000" />
+</map>
+}
+
+@section Scripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        drawMapsterDots();
+
+        $('area').qtip({
+            content: {
+                text: 'Support for area maps with no extra configuration! Awesome.'
+            },
+            position: {
+                my: 'top left',
+                at: 'bottom right'
+            }
+        });
+
+    });//$(document).ready(function () {
+
+    function drawMapsterDots() {
+
+        var arr = [];
+
+        $('area').each(function () {
+            var color = $(this).attr('data-color');
+            var temp = { key: $(this).attr("id"), fillColor: color, stroke: true, strokeColor: '000000', strokeWidth: 2, selected: true }
+            arr.push(temp);
+        })
+
+        $('img').mapster({
+            mapKey: 'data-key',
+            areas: [//arr,
+            {
+                key: '1',
+                fillColor: $('#1').attr('data-color'),
+                //stroke: true,
+                strokeColor: $('#1').attr('data-color'),
+                selected:true
+            },
+            {
+                key: '2',
+                fillColor: '6495ED',
+                stroke: true,
+                strokeColor: '000000',
+                strokeWidth: 2,
+                selected: true
+            },
+            {
+                key: '3',
+                fillColor: 'ff0000',
+                //stroke: true,
+                strokeColor: $('#3').attr('data-color'),
+                selected: true
+            }],
+            staticState: true,
+        });
+
+    }
+
+
+</script>
+    }

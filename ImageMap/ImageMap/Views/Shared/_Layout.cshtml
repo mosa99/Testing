@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>*@
+    <link href="http://cdn.jsdelivr.net/qtip2/2.2.0/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
+            
+</head>
+<body>
+  
+
+    <div class="container body-content">
+        @RenderSection("Body")
+    </div>
+
+    
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+    <script src="http://cdn.jsdelivr.net/qtip2/2.2.0/jquery.qtip.js"></script>
+    @*https://github.com/jamietre/ImageMapster //Location of the Source for ImageMapster*@
+    <script src="~/Scripts/jquery.imagemapster.js"></script>
+    @RenderSection("Scripts")
+</body>
+</html>
